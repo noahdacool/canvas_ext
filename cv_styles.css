@@ -1,0 +1,181 @@
+#wrapper {
+    padding-left: 0px !important;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+    padding-right: 0px !important;
+    flex: 1;
+}
+#header {
+    width: calc(100% - 4em) !important;
+
+}
+
+#dashboard {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+#tab_courses {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 5em);
+    width: 8em;
+    background-color: black
+}
+#footer {
+    display: none;
+}
+#announcementWrapper {
+    display: none;
+}
+.course_button {
+    height: 50px;
+    font-size: large;
+}
+#class_wind {
+    height: calc(100vh - 5em);
+    flex: 1;
+    border: none;
+}
+#right-side {
+    top: -2em;
+}
+body.dashboard-home #right-side .events_list {
+    margin-top: 0em !important;
+    background-color: brown;
+}
+#sidebar {
+    background-color: rgb(7, 32, 76);
+    position: absolute;
+    right: 0em;
+    top: 0em;
+    border: none;
+    font-size: xx-large;
+    font-weight: 900;
+    color: white;
+    height: 2em;
+    width: 2em;
+}
+#global-header {
+    display: none;
+}
+#planner-todosidebar-item-list {
+    height: calc(50vh - 5em);
+    overflow-y: scroll;
+}
+.right-side-list {
+    height: calc(50vh - 5em);
+    overflow-y: scroll;
+}
+#right-side-wrapper {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+    margin-right: 2rem;
+    right: 0;   
+    transition: 0.3s ease-out;
+    max-width: 275px;
+    min-width: 275px;
+
+    overflow-y: hidden !important;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.dUOHu_bGBk.dUOHu_drOs.dUOHu_eXrk.cGqzL_bGBk.cGqzL_owrh.ToDoSidebarItem__Icon {
+    width: 1.5em !important;
+    height: 1.5em !important;
+    margin-top: 0px !important;
+}
+
+.ToDoSidebarItem__Title button {
+    margin-top: 0px !important;
+    margin-right: 0px !important;
+}
+
+div#right-side-wrapper.ic-app-main-content__secondary {
+    display: block;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    max-height: 100vh;
+    background-color: firebrick !important;
+}
+
+#not_right_side.ic-app-main-content {
+    flex-direction: column;
+    margin-left: 0px;
+}
+#application {
+    display: flex;
+    flex-direction: row;
+}
+
+div.ic-app-main-content__secondary#right-side-wrapper {
+    margin-left: 0px !important;
+}
+#main {
+    display: flex;
+    padding: 0px !important;
+}
+
+#not_right_side {
+    margin-left: 2rem;
+}
+
+/* List item li for to do list*/
+.ToDoSidebarItem {
+    gap: 0rem !important;
+}
+.ToDoSidebarItem__Title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0px !important;
+
+}
+.ToDoSidebarItem__Info {
+    flex-direction: column !important;
+    padding: 0px !important;
+    margin-top: 0px !important;
+}
+#planner-todosidebar-item-list {
+    gap: 0em !important;
+    margin: 0px !important;
+}
+.ToDoSidebarItem__Info ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    justify-content: space-between;
+}
+.jpyTq_bGBk {
+    max-width: calc(275px - 3.2em) !important;
+}
+.ToDoSidebarItem__Close {
+    display: none;
+}
+.ToDoSidebarItem__Info a {
+    display: flex;
+    color: black;
+    margin-top: 5px;
+    margin-bottom: 8px;
+    justify-content: center;
+} 
+.ToDoSidebarItem__Info span {
+    font-size: medium !important;
+}
+.ToDoSidebarItem__Title span {
+    font-weight: 500 !important;
+    color: darkblue !important;
+}
+.Sidebar__TodoListContainer {
+    flex: 1;
+    margin-top: 1em !important;
+}
+.fOyUs_bGBk.fOyUs_ImeN {
+    display: none;
+}
+#planner-todosidebar-item-list {
+    height: calc(50vh  -2em)
+}
