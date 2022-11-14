@@ -17,19 +17,15 @@ function init_layout() {
         
     var right_bar = document.getElementById("right-side-wrapper");
     right_bar.parentNode.removeChild(right_bar);
-    var app = document.getElementById("application");
-    var grades_button = right_bar.children
-    console.log(grades_button)
+    var dash = document.getElementById("dashboard");
+    
 
 
     var main_panel = document.getElementById("not_right_side");
     var header = document.getElementById("header");
 
-
-    app.append(right_bar)
-    header.parentNode.removeChild(header)
-    main_panel.prepend(header)
-
+    header.parentNode.removeChild(header);
+    main_panel.prepend(header);
 
 
     var collapse = document.createElement("button");
@@ -37,18 +33,19 @@ function init_layout() {
     collapse.id = "sidebar";
     collapse.addEventListener("click", function () {
         if (right_bar.style.position == "sticky" || right_bar.style.right == "") {
-            right_bar.style.position = "absolute";
             right_bar.style.right = -100 + "vw";
+            right_bar.style.position = "absolute";
             collapse.innerHTML = " <<"
         } else {
-            right_bar.style.right = 0;
             right_bar.style.position = "sticky";
+            right_bar.style.right = 1 + "em";
             collapse.innerHTML = " >>"
         }
     })
 
-    document.getElementById("dashboard").append(class_wind);
-    document.getElementById("dashboard").prepend(collapse);
+    dash.append(class_wind);
+    dash.append(right_bar)
+    dash.prepend(collapse);
 
     trial();
 }
@@ -66,7 +63,6 @@ function trial () {
             }
         }
     } catch {
-        console.log("trial called");
         setTimeout(trial, 250);
     }
 }
@@ -115,6 +111,10 @@ function list_fetch() {
     tab_courses.id = "tab_courses"
     document.getElementById("dashboard").prepend(tab_courses)
 
+    create_button("inbox_button", "Inbox", "https://canvas.liberty.edu/conversations", tab_courses);
+    create_button("grades_button", "Calendar", "https://canvas.liberty.edu/calendar", tab_courses);
+    create_button("grades_button", "View Grades", "https://canvas.liberty.edu/grades", tab_courses);
+
     var course_cards = document.getElementById("DashboardCard_Container").children[0].children[0].children;
 
     try {
@@ -123,6 +123,9 @@ function list_fetch() {
             var name = course_cards[card].getElementsByClassName("ic-DashboardCard__header-title")[0].children[0].innerHTML;
             var abbr = abbr_smcl(name);
             var section = name.slice(-5);
+            var abbr_formatted = abbr.slice(0, 4) + " " + abbr.slice(4, 7) + " " + section
+            
+            console.log(abbr, section)
             try {
                 var img = course_cards[card].getElementsByClassName("ic-DashboardCard__header_image")[0].style;
             } catch {}
@@ -130,14 +133,7 @@ function list_fetch() {
             
             var alerts = document.getElementsByClassName("ic-DashboardCard__action-container")[card];
             var flag = alerts.getElementsByClassName("ic-DashboardCard__action-badge")[0];
-
-            const tab = document.createElement("button");
-            tab.id = abbr;
-            tab.classList.add("course_button");
-            tab.innerText = abbr;
-            tab.setAttribute("url", url);
-            tab.addEventListener("click", function e(tab){reload_embed_window(tab)});
-            tab_courses.appendChild(tab);
+            create_button(abbr, abbr_formatted, url, tab_courses);
         };
     } catch {}
 
@@ -146,6 +142,35 @@ function list_fetch() {
 
     const dash_cont = document.getElementById("DashboardCard_Container");
     dash_cont.parentNode.removeChild(dash_cont);
+
+    const grades_extra = document.getElementById("right-side").children[2];
+    grades_extra.parentNode.removeChild(grades_extra);
+
+    const acct_btn = document.getElementById("global_nav_profile_link");
+    const header_menu = document.getElementById("menu");
+    header_menu.parentNode.removeChild(header_menu);
+
+    const header_logo = document.getElementsByClassName("ic-app-header__logomark-container")[1];
+    console.log(header_logo);
+
+    const new_header = document.createElement("div");
+    new_header.id = "new_header"
+    new_header.innerText = "CANVAS++";
+    header_logo.parentElement.appendChild(new_header);
+
+    header_logo.parentNode.removeChild(header_logo);
+
+
+}
+
+function create_button(id, innerText, url, container) {
+    const button = document.createElement("button");
+    button.id = id;
+    button.classList.add("course_button");
+    button.innerText = innerText,
+    button.setAttribute("url", url);
+    button.addEventListener("click", function e(button){reload_embed_window(button)});
+    container.appendChild(button);
 }
 
 // Removes unnecessary text from a given string
@@ -164,7 +189,69 @@ function strip_embed() {
     var doc = document.getElementById("class_wind").contentDocument;
 
     const new_style = document.createElement("style");
-    new_style.textContent = ".item-group-condensed {margin: 0px !important; padding: 0px !important;} .ig-header {margin: 0px !important}";
+    new_style.textContent = `
+    .item-group-condensed {
+        margin: 0px !important; 
+        padding: 0px !important;
+    } 
+    .ig-header {
+        margin: 0px !important; 
+        background-color: rgb(142, 141, 190) !important; 
+        padding: 0px !important;
+    } 
+    .ContextModuleSubHeader_0 {
+        display: none;
+    }
+    .ig-row {
+        padding: 0px !important;
+    }
+    .content {
+        display: inherit !important;
+        overflow: visible !important;
+    }
+    .footer {
+        display: none;
+    }
+    .ig-header .screenreader-only {
+        display: none;
+    }
+    .ig-header-title {
+        display: flex !important;
+        justify-content: center;
+    }
+    .ig-header-title i {
+        display: none;
+    }
+    .expand_module_link {
+        display: none !important;
+    }
+    .prerequisites {
+        display: none !important;
+    }
+    .requirements_message {
+        display: none !important;
+    }
+    .percentComplete {
+        display: none !important;
+    }
+    .ig-header-admin {
+        display: none !important;
+    }
+    .module_item_icons {
+        display: none;
+    }
+    .ig-info {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .module-item-status-icon {
+        display: none;
+    }
+    .ig-header-title.collapse_module_link {
+        display: none !important;
+    }
+    `;
     doc.head.appendChild(new_style);
 
     var wrapper = doc.getElementById("context_modules");
@@ -175,7 +262,26 @@ function strip_embed() {
         embed_app_nodes[child].style = "display: none !important";
     }
 
-    doc.getElementById("application").appendChild(wrapper)   
+    doc.getElementById("application").appendChild(wrapper);
+
+    const modules = wrapper.children
+    console.log(modules.length)
+
+    for (let i = 0; i < modules.length; i++) {
+        const name = modules[i].children[1].children[1].innerHTML;
+        if (!name.includes("Module") && !name.includes("Week")) {
+            modules[i].style = "display: none;"
+        }
+        var title = document.createElement("div");
+        title.classList.add("ig-header-title");
+        title.innerHTML = name;
+        modules[i].prepend(title);
+        modules[i].children[1].parentNode.removeChild(modules[i].children[1]);
+
+        
+        //modules[i].children[1].children[3].setAttribute("role", "div");
+
+    }
 }
 
 function reload_embed_window(button){

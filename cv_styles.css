@@ -5,22 +5,32 @@
     padding-right: 0px !important;
     flex: 1;
 }
+:root[data-gh-auth][data-gh-unfurled] {
+    padding-right: 0px !important;
+}
 #header {
     width: calc(100% - 4em) !important;
-
+    background-color: rgb(122, 48, 108);
 }
-
+.shared-space {
+    width: 100%;
+    text-align: center;
+}
+.todo-list-header {
+    width: 100%;
+    text-align: center;
+}
 #dashboard {
+    margin: 1em !important;
     display: flex;
     flex-direction: row;
-    width: 100%;
+    width: calc(100% - 2em);
 }
 #tab_courses {
     display: flex;
     flex-direction: column;
-    height: calc(100vh - 5em);
-    width: 8em;
-    background-color: black
+    height: calc(100vh - 7em);
+    width: fit-content;
 }
 #footer {
     display: none;
@@ -30,22 +40,33 @@
 }
 .course_button {
     height: 50px;
-    font-size: large;
+    font-size: medium;
+    background-color: lightslategray;
+    border-color: black;
+}
+.course_button:focus {
+    background-color: white;
+    border-right: none !important;
+}
+#right-side-wrapper {
+    max-height: calc(100vh - 7em) !important;
 }
 #class_wind {
-    height: calc(100vh - 5em);
+    height: calc(100vh - 7em);
     flex: 1;
     border: none;
 }
+#right-side-wrapper .hydrated {
+    margin: 0px !important;
+}
 #right-side {
-    top: -2em;
+    margin: 0px !important;
 }
 body.dashboard-home #right-side .events_list {
     margin-top: 0em !important;
-    background-color: brown;
 }
 #sidebar {
-    background-color: rgb(7, 32, 76);
+    background-color: rgb(122, 48, 108);
     position: absolute;
     right: 0em;
     top: 0em;
@@ -53,33 +74,37 @@ body.dashboard-home #right-side .events_list {
     font-size: xx-large;
     font-weight: 900;
     color: white;
-    height: 2em;
+    height: 2.5em;
     width: 2em;
 }
 #global-header {
     display: none;
 }
 #planner-todosidebar-item-list {
-    height: calc(50vh - 5em);
+    flex: 1;
     overflow-y: scroll;
+    max-height: calc(50vh - 1em - 75px);
 }
 .right-side-list {
-    height: calc(50vh - 5em);
     overflow-y: scroll;
+    background-color: rgb(142, 141, 190) !important;
+}
+.events {
+    background-color: rgB(142, 141, 190);
+    max-height: calc(50vh - 3em - 80px);
 }
 #right-side-wrapper {
     margin-left: 0px !important;
     margin-right: 0px !important;
     margin-right: 2rem;
-    right: 0;   
-    transition: 0.3s ease-out;
+    right: 1em;  
     max-width: 275px;
     min-width: 275px;
 
     overflow-y: hidden !important;
     height: 100vh;
-    display: flex;
-    flex-direction: column;
+    display: flex !important;
+    flex-direction: row !important;
 }
 
 .dUOHu_bGBk.dUOHu_drOs.dUOHu_eXrk.cGqzL_bGBk.cGqzL_owrh.ToDoSidebarItem__Icon {
@@ -94,14 +119,14 @@ body.dashboard-home #right-side .events_list {
 }
 
 div#right-side-wrapper.ic-app-main-content__secondary {
-    display: block;
+    display: flex !important;
+    flex-direction: column !important;
     position: -webkit-sticky;
     position: sticky;
     top: 0;
     max-height: 100vh;
-    background-color: firebrick !important;
+    background-color: rgb(118, 120, 237) !important;
 }
-
 #not_right_side.ic-app-main-content {
     flex-direction: column;
     margin-left: 0px;
@@ -124,6 +149,15 @@ div.ic-app-main-content__secondary#right-side-wrapper {
 }
 
 /* List item li for to do list*/
+.todo-list-header {
+    background-color: rgb(122, 48, 108) !important;
+}
+.h2 {
+    background-color: rgb(122, 48, 108) !important;
+}
+.h2 h2 {
+    background-color: rgb(122, 48, 108) !important;
+}
 .ToDoSidebarItem {
     gap: 0rem !important;
 }
@@ -142,6 +176,7 @@ div.ic-app-main-content__secondary#right-side-wrapper {
 #planner-todosidebar-item-list {
     gap: 0em !important;
     margin: 0px !important;
+    background-color: rgb(142, 141, 190);
 }
 .ToDoSidebarItem__Info ul {
     display: flex;
@@ -167,15 +202,94 @@ div.ic-app-main-content__secondary#right-side-wrapper {
 }
 .ToDoSidebarItem__Title span {
     font-weight: 500 !important;
-    color: darkblue !important;
+    color: rgb(118, 120, 237) !important;
 }
-.Sidebar__TodoListContainer {
+body.dashboard-home #application #right-side-wrapper .Sidebar__TodoListContainer {
     flex: 1;
-    margin-top: 1em !important;
+    margin-top: 0px !important;
 }
 .fOyUs_bGBk.fOyUs_ImeN {
     display: none;
 }
-#planner-todosidebar-item-list {
-    height: calc(50vh  -2em)
+body .dashboard-home #right-side {
+    margin-top: 0px !important;
+    height: 100vh;
 }
+body {
+    overflow: hidden;
+}
+#right-side {
+    display: flex !important;
+    flex-direction: column;
+}
+#new_header {
+    color: white;
+    font-family: monospace;
+    font-size: xxx-large;
+    font-style: italic;
+    line-height: 80px;
+    padding-left: 1em;
+}
+.Sidebar__TodoListContainer {
+    background-color: rgb(142, 141, 190);
+}
+
+iframe
+    .item-group-condensed {
+        margin: 0px !important; 
+        padding: 0px !important;
+    } 
+    .ig-header {
+        margin: 0px !important; 
+        background-color: rgb(142, 141, 190) !important; 
+        padding: 0px !important;
+    } 
+    .ContextModuleSubHeader_0 {
+        display: none;
+    }
+    .ig-row {
+        padding: 0px !important;
+    }
+    .mod_content {
+        display: inherit !important;
+        overflow: visible !important;
+    }
+    .footer {
+        display: none;
+    }
+    .ig-header .screenreader-only {
+        display: none;
+    }
+    .ig-header-title.expand_module_link {
+        display: flex !important;
+        justify-content: center;
+    }
+    .ig-header-title i {
+        display: none;
+    }
+    .prerequisites {
+        display: none !important;
+    }
+    .requirements_message {
+        display: none !important;
+    }
+    .percentComplete {
+        display: none !important;
+    }
+    .ig-header-admin {
+        display: none !important;
+    }
+    .module_item_icons {
+        display: none;
+    }
+    .ig-info {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .module-item-status-icon {
+        display: none;
+    }
+    .ig-header-title.collapse_module_link {
+        display: none !important;
+    }

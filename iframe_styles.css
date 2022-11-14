@@ -1,0 +1,58 @@
+.item-group-condensed {
+    margin: 0px !important; 
+    padding: 0px !important;
+} 
+.ig-header {
+    margin: 0px !important; 
+    background-color: rgb(142, 141, 190) !important; 
+    padding: 0px !important;
+} 
+.ContextModuleSubHeader_0 {
+    display: none;
+}
+.ig-row {
+    padding: 0px !important;
+}
+.mod_content {
+    display: inherit !important;
+    overflow: visible !important;
+}
+.footer {
+    display: none;
+}
+.ig-header .screenreader-only {
+    display: none;
+}
+.ig-header-title.expand_module_link {
+    display: flex !important;
+    justify-content: center;
+}
+.ig-header-title i {
+    display: none;
+}
+.prerequisites {
+    display: none !important;
+}
+.requirements_message {
+    display: none !important;
+}
+.percentComplete {
+    display: none !important;
+}
+.ig-header-admin {
+    display: none !important;
+}
+.module_item_icons {
+    display: none;
+}
+.ig-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.module-item-status-icon {
+    display: none;
+}
+.ig-header-title.collapse_module_link {
+    display: none !important;
+}
