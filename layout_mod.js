@@ -11,7 +11,6 @@ init_layout();
 function init_layout() {
     const class_wind = document.createElement("iframe");
     class_wind.id = "class_wind";
-    class_wind.src = "https://canvas.liberty.edu/courses/307018"
     class_wind.addEventListener("load", strip_embed)
 
         
@@ -134,6 +133,11 @@ function list_fetch() {
             var alerts = document.getElementsByClassName("ic-DashboardCard__action-container")[card];
             var flag = alerts.getElementsByClassName("ic-DashboardCard__action-badge")[0];
             create_button(abbr, abbr_formatted, url, tab_courses);
+
+            if (card == 0) {
+                class_wind.src = url
+                document.getElementById(abbr).focus()
+            }
         };
     } catch {}
 
@@ -218,6 +222,8 @@ function strip_embed() {
     .ig-header-title {
         display: flex !important;
         justify-content: center;
+        text-align: center;
+        background-color: lavender;
     }
     .ig-header-title i {
         display: none;

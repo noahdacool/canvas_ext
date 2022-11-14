@@ -41,8 +41,8 @@
 .course_button {
     height: 50px;
     font-size: medium;
-    background-color: lightslategray;
-    border-color: black;
+    background-color: lightsteelblue;
+    border-color: darkgray;
 }
 .course_button:focus {
     background-color: white;
