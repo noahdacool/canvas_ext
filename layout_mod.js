@@ -16,7 +16,7 @@ function init_layout() {
         
     var right_bar = document.getElementById("right-side-wrapper");
     right_bar.parentNode.removeChild(right_bar);
-    var dash = document.getElementById("dashboard");
+    var dash = document.getElementById("main");
     
 
 
@@ -24,11 +24,13 @@ function init_layout() {
     var header = document.getElementById("header");
 
     header.parentNode.removeChild(header);
-    main_panel.prepend(header);
+    //main_panel.prepend(header);
+    
+    var mobile_header = document.getElementById("mobile-header");
+    mobile_header.parentNode.removeChild(mobile_header);
 
 
     var collapse = document.createElement("button");
-    collapse.innerHTML = ">>";
     collapse.id = "sidebar";
     collapse.addEventListener("click", function () {
         if (right_bar.style.position == "sticky" || right_bar.style.right == "") {
@@ -42,9 +44,15 @@ function init_layout() {
         }
     })
 
+    // collapse sidebar by default
+    right_bar.style.right = -100 + "vw";
+    right_bar.style.position = "absolute";
+    collapse.innerHTML = " <<";
+
+
     dash.append(class_wind);
     dash.append(right_bar)
-    dash.prepend(collapse);
+    //dash.prepend(collapse);
 
     trial();
 }
