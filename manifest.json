@@ -4,7 +4,7 @@
     "version": "0.1",
     "permissions": ["activeTab"],
     "content_scripts": [{
-        "matches": ["https://canvas.liberty.edu/*"],
+        "matches": ["https://canvas.liberty.edu/"],
         "js": ["layout_mod.js"],
         "css": ["cv_styles.css"]
     }]
